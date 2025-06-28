@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-users"></i>
+                <span>SocialConnect</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#" class="nav-link" onclick="showSection('feed')">Feed</a>
+                <a href="#" class="nav-link" onclick="showSection('explore')">Explore</a>
+                <a href="#" class="nav-link" onclick="showSection('profile')">Profile</a>
+                <button class="nav-link logout-btn" onclick="logout()">Logout</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Section -->
+    <div id="auth-section" class="section active">
+        <div class="auth-container">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <h2>Welcome to SocialConnect</h2>
+                    <p>Connect with friends and share your moments</p>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form">
+                    <h3>Login</h3>
+                    <div class="form-group">
+                        <input type="text" id="login-username" placeholder="Username or Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+
+                <!-- Register Form -->
+                <form id="register-form" class="auth-form">
+                    <h3>Register</h3>
+                    <div class="form-group">
+                        <input type="text" id="register-username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="register-email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="register-fullname" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="register-password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="register-bio" placeholder="Bio (optional)"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Section -->
+    <div id="app-section" class="section">
+        <div class="container">
+            <!-- Feed Section -->
+            <div id="feed-section" class="content-section active">
+                <div class="feed-header">
+                    <h2>Your Feed</h2>
+                    <button class="btn btn-primary" onclick="showCreatePost()">
+                        <i class="fas fa-plus"></i> New Post
+                    </button>
+                </div>
+                
+                <!-- Create Post Modal -->
+                <div id="create-post-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="hideCreatePost()">&times;</span>
+                        <h3>Create New Post</h3>
+                        <form id="create-post-form">
+                            <div class="form-group">
+                                <textarea id="post-content" placeholder="What's on your mind?" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="url" id="post-image" placeholder="Image URL (optional)">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Post</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="posts-container" class="posts-container">
+                    <!-- Posts will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Explore Section -->
+            <div id="explore-section" class="content-section">
+                <h2>Discover People</h2>
+                <div id="users-container" class="users-container">
+                    <!-- Users will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile-section" class="content-section">
+                <div id="profile-container">
+                    <!-- Profile will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
